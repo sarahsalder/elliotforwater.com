@@ -13,6 +13,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'react-hooks', 'jest'],
   rules: {
+    'comma-dangle': ['error', 'only-multiline'],
     'no-shadow': 'warn',
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': [
