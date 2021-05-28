@@ -44,7 +44,7 @@ const Footer = () => {
       <div className={styles.separationLine} />
       <ul className={styles.links}>
         <li className={styles.link}>
-          <Link href='/about'>
+          <Link href='/about/#contact'>
             <a>{t('common:footer.contact')}</a>
           </Link>
         </li>
