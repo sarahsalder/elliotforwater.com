@@ -426,9 +426,10 @@ interface resultsObj {
 }
 
 // cannot use getServerSideProps yet: https://github.com/vercel/next.js/discussions/17269
-SearchPage.getInitialProps = async ({ req, res, query }) => {
-  let searchQuery = query.query
-  let type = query.type
+SearchPage.getInitialProps = async ({ req, res, query, pathName, asPath }) => {
+  // fix for paths with a hash in them, if the path includes a hash, we create params by slicing the asPath string
+  let searchQuery = asPath.indexOf('#') ? asPath.slice(asPath.indexOf('=') + 1, asPath.indexOf('&type')) : query.query
+  let type = asPath.indexOf('#') ? 'web' : query.type
   const oldQuery = query.q
 
   // fix for legacy query parameters
